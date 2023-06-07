@@ -1,4 +1,3 @@
-using RoboTester;
 using System.Text;
 
 namespace MicroBitAutoFlasher
@@ -30,15 +29,21 @@ namespace MicroBitAutoFlasher
 
         private bool DetectMicrobit()
         {
-            DriveInfo[] drives = DriveInfo.GetDrives();
-            for (int i = 0; i < drives.Count(); i++)
+            try
             {
-                if (drives[i].VolumeLabel == "MICROBIT")
+                DriveInfo[] drives = DriveInfo.GetDrives();
+                for (int i = 0; i < drives.Count(); i++)
                 {
-                    mbPath = drives[i].Name;
-                    mbDetected = true;
-                    return mbDetected;
+                    if (drives[i].VolumeLabel == "MICROBIT")
+                    {
+                        mbPath = drives[i].Name;
+                        mbDetected = true;
+                        return mbDetected;
+                    }
                 }
+            } catch (Exception ex)
+            {
+                lstLog.Items.Add($"Error scanning for micro:bit: {ex.Message}");
             }
             return false;
 

@@ -13,8 +13,4 @@
     <Content Include="media\icon.ico" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\RoboTester\RoboTester.csproj" />
-  </ItemGroup>
-
 </Project>
