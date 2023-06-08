@@ -19,7 +19,7 @@ Win win.
 ![image](https://github.com/pddring/MicroBitAutoFlasher/assets/760604/58e7c5c7-005c-4c1a-b27a-60919e752733)
 
 When a new .hex file is detected the icon goes red until the file is copied successfully:
-![image](https://github.com/pddring/MicroBitAutoFlasher/assets/760604/5c054d76-9eb2-4d33-8caf-546208f8a91f)
+![image](https://github.com/pddring/MicroBitAutoFlasher/assets/760604/9082a4a0-ae2c-410d-bb0b-40878e2b9db8)
 
 
 You can download the source code here (designed with C# in Visual Studio 2022) or you can download [an msi installer here](https://github.com/pddring/MicroBitAutoFlasher/raw/master/Installer/Microbit%20Auto%20Flash%20Installer.msi)
