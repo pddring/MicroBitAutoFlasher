@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MBFlasher));
             statusStrip = new StatusStrip();
             statusLabel = new ToolStripStatusLabel();
             timer = new System.Windows.Forms.Timer(components);
@@ -75,9 +74,9 @@
             ClientSize = new Size(800, 450);
             Controls.Add(lstLog);
             Controls.Add(statusStrip);
-            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MBFlasher";
             Text = "Micro:bit auto flasher tool";
+            Load += MBFlasher_Load;
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             ResumeLayout(false);

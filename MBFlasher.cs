@@ -1,3 +1,4 @@
+using System.Resources;
 using System.Text;
 
 namespace MicroBitAutoFlasher
@@ -20,6 +21,7 @@ namespace MicroBitAutoFlasher
 
             CodePagesEncodingProvider.Instance.GetEncoding(850);
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            lstLog.Items.Add("This program is made by staff and students at Fulford School in York to make it easier to transfer .hex files to a microbit");
             lstLog.Items.Add("Leave this program running while you use an online code editor for the micro:bit");
             lstLog.Items.Add("This program will scan your downloads folder for any .hex files that you save.");
             lstLog.Items.Add("If a micro:bit is plugged in it will attempt to copy it automatically");
@@ -41,15 +43,16 @@ namespace MicroBitAutoFlasher
                         return mbDetected;
                     }
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                lstLog.Items.Add($"Error scanning for micro:bit: {ex.Message}");
+                lstLog.Items.Add($"Error scanning for micro:bit: {ex.Message}. This isn't usually a problem if it happens when the micro:bit is restarting.");
             }
             return false;
 
         }
 
-        private void log(string message)
+        private void log(string message, Icon newIcon = null)
         {
             if (message != null)
             {
@@ -57,6 +60,11 @@ namespace MicroBitAutoFlasher
                 {
                     lstLog.Items.Add(message);
                     lstLog.TopIndex = lstLog.Items.Count - 1;
+
+                    if (newIcon != null)
+                    {
+                        Icon = newIcon;
+                    }
                 });
             }
         }
@@ -66,7 +74,7 @@ namespace MicroBitAutoFlasher
             // only start processing file once, when it's been detected once already. Ignore all other times this file is detected
             if (ignoreFileList.ContainsKey(e.Name))
             {
-                log($"Processing file {e.Name}");
+                log($"Processing file {e.Name}", Resources.red);
             }
             else
             {
@@ -88,7 +96,7 @@ namespace MicroBitAutoFlasher
                 log(msg);
                 return 0;
             });
-            log($"Done copying {e.Name} to {mbPath}");
+            log($"Done copying {e.Name} to {mbPath}", Resources.black);
 
 
         }
@@ -121,6 +129,9 @@ namespace MicroBitAutoFlasher
             statusLabel.Text = status;
         }
 
-
+        private void MBFlasher_Load(object sender, EventArgs e)
+        {
+            Icon = Resources.black;
+        }
     }
 }
