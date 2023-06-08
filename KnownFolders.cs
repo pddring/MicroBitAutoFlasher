@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MicroBitAutoFlasher
 {
+    // source: https://stackoverflow.com/questions/10667012/getting-downloads-folder-in-c
     public enum KnownFolder
     {
         Contacts,
