@@ -14,6 +14,14 @@ The workaround suggested on that site suggested using WebUSB (sadly doesn't seem
 
 This program is designed to detect your downloads folder then scan it for any new .hex files. It will also scan to see if a micro:bit is detected.
 If a new .hex file is detected and a micro:bit is plugged in, the program will use robocopy (robust copy - I didn't know that even existed until today :) to automatically copy it to the device.
-
 Win win.
+
+![image](https://github.com/pddring/MicroBitAutoFlasher/assets/760604/58e7c5c7-005c-4c1a-b27a-60919e752733)
+
+When a new .hex file is detected the icon goes red until the file is copied successfully:
+![image](https://github.com/pddring/MicroBitAutoFlasher/assets/760604/5c054d76-9eb2-4d33-8caf-546208f8a91f)
+
+
+You can download the source code here (designed with C# in Visual Studio 2022) or you can download [an msi installer here](https://github.com/pddring/MicroBitAutoFlasher/raw/master/Installer/Microbit%20Auto%20Flash%20Installer.msi)
+
 Hope it's useful :)
